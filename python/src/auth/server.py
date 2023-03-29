@@ -14,6 +14,12 @@ server.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
 server.config["MYSQL_DB"] = os.environ.get("MYSQL_DB")
 server.config["MYSQL_PORT"] = os.environ.get("MYSQL_PORT")
 
+print("MYSQL_HOST: ", os.environ.get("MYSQL_HOST"))
+print("MYSQL_USER: ", os.environ.get("MYSQL_USER"))
+print("MYSQL_PASSWORD: ", os.environ.get("MYSQL_PASSWORD"))
+print("MYSQL_DB: ", os.environ.get("MYSQL_DB"))
+print("MYSQL_PORT: ", os.environ.get("MYSQL_PORT"))
+
 
 @server.route("/login", methods=["POST"])
 def login():
@@ -68,3 +74,9 @@ def createJWT(username, secret, is_admin):
 
 if __name__ == "__main__":
     server.run(host="0.0.0.0", port=5000, debug=True)
+
+# export MYSQL_HOST= localhost
+# export MYSQL_USER= auth_user
+# export MYSQL_PASSWORD= strong_password
+# export MYSQL_DB= auth
+# export MYSQL_PORT= 3306
